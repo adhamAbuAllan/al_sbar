@@ -8,9 +8,12 @@ import 'package:flutter/services.dart';  // For setting screen orientation
 final themeProvider = StateProvider<bool>((ref) => false); // false for light mode, true for dark mode
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter binding is initialized
   // Set the screen orientation to landscape
-  SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeRight, DeviceOrientation.landscapeLeft])
-      .then((_) {
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeRight,
+    DeviceOrientation.landscapeLeft
+  ]).then((_) {
     runApp(
       const ProviderScope(
         child: MyApp(),
